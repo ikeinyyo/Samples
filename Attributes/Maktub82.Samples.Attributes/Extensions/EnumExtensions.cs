@@ -9,19 +9,19 @@ namespace Maktub82.Samples.Attributes.Extensions
     public static class EnumExtensions
     {
         #region Century Example
-        public static int GetStartYear(this Enum enumValue)
+        public static int GetStartYear(this Century enumValue)
         {
             var attribute = GetFirstOrDefaultAttribute<CenturyDataAttribute>(enumValue);
             return attribute != null ? attribute.StartYear : 0;
         }
 
-        public static int GetEndYear(this Enum enumValue)
+        public static int GetEndYear(this Century enumValue)
         {
             var attribute = GetFirstOrDefaultAttribute<CenturyDataAttribute>(enumValue);
             return attribute != null ? attribute.EndYear : 0;
         }
 
-        public static string GetCenturyName(this Enum enumValue)
+        public static string GetCenturyName(this Century enumValue)
         {
             var attribute = GetFirstOrDefaultAttribute<CenturyDataAttribute>(enumValue);
             return attribute != null ? attribute.DisplayName : string.Empty;
