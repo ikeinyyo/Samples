@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Maktub82.Samples.UserInfo.UW.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Maktub82.Samples.UserInfo.UW"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Maktub82.Samples.UserInfo.UW.Converters"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:EmptyToNoInformationConverter x:Key="EmptyToNoInformationConverter" />
+        
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="80"/>
+            <RowDefinition  Height="20"/>
+            <RowDefinition/>
+            <RowDefinition  Height="20"/>
+            <RowDefinition  Height="60"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Ellipse>
+                <Ellipse.Fill>
+                    <ImageBrush x:Name="AccountPicture" ImageSource="YourImage.png"/>
+                </Ellipse.Fill>
+            </Ellipse>
+            
+            <TextBlock x:Name="DisplayName" Grid.Column="1" FontSize="24pt" FontWeight="Bold" VerticalAlignment="Bottom" />
+        </Grid>
+
+        <ListView Grid.Row="2" x:Name="UserData">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="300"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock FontWeight="Bold" Text="{Binding Key}"/>
+                        <TextBlock Grid.Column="1" FontWeight="Light" Text="{Binding Value, Converter={StaticResource EmptyToNoInformationConverter}}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <HyperlinkButton Grid.Row="4" Content="Reference" NavigateUri="https://github.com/Microsoft/Windows-universal-samples/tree/master/Samples/UserInfo" />
+    </Grid>
+</Page>
