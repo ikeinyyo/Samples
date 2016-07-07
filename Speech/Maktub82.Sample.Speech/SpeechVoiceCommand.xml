@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="es-ES" Name="SpeechVoiceCommand_es-ES">
+    <AppName> Frase </AppName>
+    <Example> Mayúsculas hola mundo </Example>
+
+    <Command Name="Upper">
+      <Example>Pasa a mayúsculas la frase hola mundo</Example>
+      <ListenFor RequireAppName="BeforePhrase">Pasa a mayúsculas la frase {text}</ListenFor>
+      <Feedback>Pasando a mayúsculas la frase {text}</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Lower">
+      <Example>Pasa a minúsculas la frase hola mundo</Example>
+      <ListenFor RequireAppName="BeforePhrase">Pasa a minúsculas la frase {text}</ListenFor>
+      <Feedback>Pasando a minúsculas la frase {text}</Feedback>
+      <Navigate />
+    </Command>
+
+    <Command Name="Reverse">
+      <Example>Dale la vuelta a la frase hola mundo </Example>
+      <ListenFor RequireAppName="BeforePhrase">Dale la vuelta a la frase {text}</ListenFor>
+      <Feedback>Dando la vuelta a la frase {text}</Feedback>
+      <Navigate />
+    </Command>
+    
+    <PhraseTopic Label="text" Scenario="Natural Language"/>
+  </CommandSet>
+</VoiceCommands>
